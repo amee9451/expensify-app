@@ -25,15 +25,14 @@
     "webpack-dev-server": "^2.9.7"
   },
   "dependencies": {
-    "moment": "^2.20.1",
+    "moment": "^2.18.1",
     "normalize.css": "^7.0.0",
-    "react": "^16.2.0",
+    "react": "^0.14||^15.5.4||^16.1.1",
     "react-dates": "^16.0.1",
-    "react-dom": "^16.2.0",
+    "react-dom": "^0.14||^15.5.4||^16.1.1",
     "react-modal": "^3.1.8",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "react-with-direction": "^1.1.0",
     "redux": "^3.7.2",
     "uuid": "^3.1.0"
   }
