@@ -35,7 +35,9 @@ class ExpenseForm extends React.Component {
   };
 
   onDateChange = (date) => {
-    this.setState(() => ({ createdAt: date }));
+    if (date) {
+      this.setState(() => ({ createdAt: date }));
+    }
   };
 
   onCalendarFocusChange = ({ focused }) => {
