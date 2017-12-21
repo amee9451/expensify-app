@@ -29,7 +29,7 @@ class ExpenseForm extends React.Component {
   onAmountChange = (event) => {
     const amount = event.target.value;
 
-    if (amount.match(/^\d*(\.\d{0,2})?$/)){
+    if (amount.match(/^\d{1,}(\.\d{0,2})?$/)){
       this.setState(() => ({ amount }));
     }
   };
