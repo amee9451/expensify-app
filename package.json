@@ -33,6 +33,7 @@
     "webpack-dev-server": "^2.9.7"
   },
   "dependencies": {
+    "express": "^4.16.2",
     "moment": "^2.18.1",
     "normalize.css": "^7.0.0",
     "react": "^0.14||^15.5.4||^16.1.1",
