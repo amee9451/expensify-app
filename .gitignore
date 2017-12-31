@@ -1,5 +1,5 @@
 /src/playground
-/public/app.bundle.js
+/public/app.bundle.*
 /node_modules
 /npm-debug.log
 /yarn-error.log
