@@ -1,16 +1,18 @@
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 module.exports = (env) => {
   const isProduction = env === 'production';
-  const CSSExtract = new ExtractTextPlugin('styles.css');
 
   return {
     entry: {
       app: './src/app.js'
     },
     output: {
-      path: path.join(__dirname, 'public'),
+      path: path.join(__dirname, 'dist'),
       filename: '[name].bundle.js'
     },
     module: {
@@ -23,21 +25,33 @@ module.exports = (env) => {
       },
       {
         test: /\.s?css$/,
-        use: CSSExtract.extract({
-          fallback: 'style-loader',
+        use: ExtractTextPlugin.extract({
           use: [
-            'css-loader',
-            'sass-loader'
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            }
           ]
         })
       }]
     },
     plugins: [
-      CSSExtract
+      new CleanWebpackPlugin(['dist']),
+      new ExtractTextPlugin('styles.css'),
+      new HtmlWebpackPlugin({ template: './src/index.html' }),
+      new CopyWebpackPlugin([{ from:'./src/images', to:'images' }])
     ],
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
-      contentBase: path.join(__dirname, 'public'),
+      contentBase: path.join(__dirname, 'dist'),
       historyApiFallback: true
     }
   };

@@ -1,6 +1,5 @@
 /src/playground
-/public/app.bundle.*
-/public/styles.css*
+/dist
 /node_modules
 /npm-debug.log
 /yarn-error.log
