@@ -7,14 +7,11 @@ import ExpenseForm from './ExpenseForm';
 import expenses from '../tests/fixtures/expenses';
 
 let editExpense, removeExpense, expense, history, wrapper;
-beforeAll(() => {
+beforeEach(() => {
   editExpense = jest.fn();
   removeExpense = jest.fn();
   expense = expenses[0];
   history = { push: jest.fn() };
-});
-
-beforeEach(() => {
   wrapper = shallow(
     <EditExpensePage 
       editExpense={editExpense}

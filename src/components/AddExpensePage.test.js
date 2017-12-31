@@ -6,11 +6,9 @@ import { AddExpensePage } from './AddExpensePage';
 import expenses from '../tests/fixtures/expenses';
 
 let addExpense, history, wrapper;
-beforeAll(() => {
+beforeEach(() => {
   addExpense = jest.fn();
   history = { push: jest.fn() };
-});
-beforeEach(() => {
   wrapper = shallow(<AddExpensePage addExpense={addExpense} history={history} />);
 });
 
